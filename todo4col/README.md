@@ -1,3 +1,9 @@
+
+Kanban board.  
+
+This app is a 4 column todo list operating in the style of a Kanban board.  
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
