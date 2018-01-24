@@ -18,7 +18,7 @@ export default class NewTask extends Component {
       <form onSubmit={this.handleSubmit}>
         <input
           value={this.state.input}
-          onChange{(e) => this.setState({ input: e.target.value })} />
+          onChange={(e) => this.setState({ input: e.target.value })} />
       </form>
     );
   }
