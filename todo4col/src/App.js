@@ -20,9 +20,13 @@ class App extends Component {
           name: 'In Progress',
           tasks: [],
         },
+        {
+          name: 'Completed',
+          tasks: [],
+        },
       ],
     };
-    this.shiftTask = this.shiftTask.bing(this);
+    this.shiftTask = this.shiftTask.bind(this);
     this.addTask = this.addTask.bind(this);
     this.save = this.save.bind(this);
   }
@@ -34,10 +38,10 @@ class App extends Component {
     newConfiguration[fromColumn].tasks.splice(fromIndex,1);
     this.setState({
       columns: newConfiguration,
-    }, () => this.save())
+    }, () => this.save());
   }
 
-  addTask(column, tastText) {
+  addTask(column, taskText) {
     const newConfiguration = [...this.state.columns];
     newConfiguration[column].tasks.push({
       text: taskText,
@@ -50,7 +54,7 @@ class App extends Component {
   save() {
     localStorage.setItem('state', JSON.stringify(this.state));
   }
-  slearCache() {
+  clearCache() {
     localStorage.clear();
     window.location.reload();
   }
@@ -60,8 +64,8 @@ class App extends Component {
       <div>
       <button onClick={this.clearCache}>clear</button>
       <div className="App">
-        {this.state.colums.map((column, index) => {
-          return (<Column key={index} data={this.state.columns[index]} columnIndex={index} siftTask={this.shiftTask} addTask={this.addTask} />);
+        {this.state.columns.map((column, index) => {
+          return (<Column key={index} data={this.state.columns[index]} columnIndex={index} shiftTask={this.shiftTask} addTask={this.addTask} />);
         })}
       </div>
     </div>
