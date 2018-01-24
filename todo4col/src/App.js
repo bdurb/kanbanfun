@@ -24,7 +24,7 @@ class App extends Component {
     };
     this.shiftTask = this.shiftTask.bing(this);
     this.addTask = this.addTask.bind(this);
-    this.save = this.save.bind(this):
+    this.save = this.save.bind(this);
   }
 
   shiftTask(fromColumn, fromIndex, toColumn) {
